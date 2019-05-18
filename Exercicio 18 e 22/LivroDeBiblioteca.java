@@ -1,7 +1,7 @@
 
 public class LivroDeBiblioteca extends Livro implements ItemDeBiblioteca {
 	private enum StatusEmprestimo {
-		EMPRESTADO, ACERVO, REPARACAO, DESAPARECIDO
+		EMPRESTADO, DEVOLVIDO, EMATRASO, EMMANUTENCAO
 	};
 
 	private StatusEmprestimo statusEmprestimo;
