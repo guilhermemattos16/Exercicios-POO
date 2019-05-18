@@ -3,8 +3,7 @@ import java.util.Date;
 public class Data extends Date {
 
 	private static final long serialVersionUID = 6299565376922637204L;
-	private int mes;
-
+	@SuppressWarnings("deprecation")
 	public void setMonth(String _mes) {
 		_mes = _mes.toLowerCase();
 
