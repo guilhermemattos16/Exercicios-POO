@@ -1,7 +1,7 @@
 
 public class LivroDeBiblioteca extends Livro implements ItemDeBiblioteca {
 	private enum StatusEmprestimo {
-		EMPRESTADO, DEVOLVIDO, EMATRASO, EMMANUTENCAO
+		EMPRESTADO, DEVOLVIDO, EMATRASO, EMMANUTENCAO, DESAPARECIDO
 	};
 
 	private StatusEmprestimo statusEmprestimo;
@@ -78,7 +78,7 @@ public class LivroDeBiblioteca extends Livro implements ItemDeBiblioteca {
 	@Override
 	public void devolve() {
 		// TODO Auto-generated method stub
-		this.statusEmprestimo = StatusEmprestimo.ACERVO;
+		this.statusEmprestimo = StatusEmprestimo.DEVOLVIDO;
 		
 	}
 
