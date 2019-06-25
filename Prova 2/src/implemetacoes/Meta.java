@@ -47,6 +47,59 @@ public class Meta extends ItemAgenda {
 	public void setPrioridade(Prioridade _prioridade) {
 		this.prioridade = _prioridade;
 	}
+	
+	/**
+  	 * Método sobreposto equals
+	 * @param _aux
+	 * @return boolean
+	 */
+ 	public boolean equals(Meta _aux) {
+ 		if (this.getPrioridade() == _aux.getPrioridade()) {
+ 			return true;
+ 		}
+ 		else {
+ 			return false;
+ 		}
+ 	}
+	
+ 	/**
+	 * Compara o objeto do chamado com o objeto passado como parametro
+	 * @param _meta
+	 * @return int
+	 */
+	public int compareTo(Meta _meta) {
+		if (this.getPrioridade() == Prioridade.URGENCIA) {
+			if (_meta.getPrioridade() == Prioridade.URGENCIA) {
+				return 0;
+			}
+			else {
+				return 1;
+			}
+		} else if (this.getPrioridade() == Prioridade.ALTA) {
+			if (_meta.getPrioridade() == Prioridade.ALTA)
+				return 0;
+			else if (_meta.getPrioridade() == Prioridade.URGENCIA)
+				return -1;
+			return 1;
+		} else if (this.getPrioridade() == Prioridade.MEDIA) {
+			if (_meta.getPrioridade() == Prioridade.MEDIA)
+				return 0;
+			else if (_meta.getPrioridade() == Prioridade.ALTA || _meta.getPrioridade() == Prioridade.URGENCIA)
+				return -1;
+			return 1;
+		} else if (this.getPrioridade() == Prioridade.BAIXA) {
+			if (_meta.getPrioridade() == Prioridade.BAIXA)
+				return 0;
+			else if (_meta.getPrioridade() == Prioridade.NEUTRA)
+				return 1;
+			return -1;
+		} else if (this.getPrioridade() == Prioridade.NEUTRA) {
+			if (_meta.getPrioridade() == Prioridade.NEUTRA)
+				return 0;
+			return -1;
+		}
+		return -1;
+	}
 
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()

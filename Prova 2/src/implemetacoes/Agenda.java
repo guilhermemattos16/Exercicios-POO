@@ -7,7 +7,6 @@ public class Agenda {
 	private List<ItemAgenda> lista;
 
 	/**
-	 * @param lista
 	 */
 	public Agenda() {
 		lista = new LinkedList<ItemAgenda>();
@@ -53,51 +52,48 @@ public class Agenda {
 	}
 	
 
-	public void imprimeMetaPrioridade() {
+	public LinkedList<Meta> imprimeMetaPrioridade() {
 		List<Meta> meta = new LinkedList<Meta>();
 		for (int i = 0; i < this.lista.size(); i++)
-			if(lista.get(i) instanceof Meta) {
+			if (lista.get(i) instanceof Meta) {
 				meta.add((Meta) lista.get(i));
 			}
-		Collections.sort(meta, new ComparaPorPrioridade());
-		System.out.println(meta);
-		meta.removeAll(meta);
-
+		Collections.sort(meta, new ComparaPrioridade());
+		return (LinkedList<Meta>) meta;
+	
 	}
 	
-	public void imprimeLembreteMinutos() {
+	public List<Lembrete> imprimeLembreteMinutos() {
 		List<Lembrete> lembrete = new LinkedList<Lembrete>();
 		for (int i = 0; i < this.lista.size(); i++)
 			if(lista.get(i) instanceof Lembrete) {
 				lembrete.add((Lembrete) lista.get(i));
 			}
 		Collections.sort(lembrete, new ComparaLembreteMinutos());
-		System.out.println(lembrete);
-		lembrete.removeAll(lembrete);
+
+		return lembrete;
 		
 	}
 	
-	public void imprimeEventoLocal() {
+	public List<Evento> imprimeEventoLocal() {
 		List<Evento> evento = new LinkedList<Evento>();
 		for (int i = 0; i < this.lista.size(); i++)
 			if(lista.get(i) instanceof Evento) {
 				evento.add((Evento) lista.get(i));
 			}
 		Collections.sort(evento, new ComparaEventoLocal());
-		System.out.println(evento);
-		evento.removeAll(evento);
 		
+		return (List<Evento>) evento;
 	}
-
-	
 
 }
 
-class ComparaPorPrioridade implements Comparator<ItemAgenda> {
+class ComparaPrioridade implements Comparator<ItemAgenda> {
   	public int compare(ItemAgenda _meta1, ItemAgenda _meta2) {
   		Meta meta1 = (Meta)_meta1;
   		Meta meta2 = (Meta)_meta2;
-        	return -meta1.compareTo(meta2);
+        
+  		return meta1.compareTo(meta2);
   	}
 }
 
@@ -105,7 +101,8 @@ class ComparaLembreteMinutos implements Comparator<ItemAgenda> {
   	public int compare(ItemAgenda _lembrete1, ItemAgenda _lembrete2) {
   		Lembrete lembrete1 = (Lembrete)_lembrete1;
   		Lembrete lembrete2 = (Lembrete)_lembrete2;
-        	return lembrete1.compareTo(lembrete2);
+        
+  		return lembrete1.compareTo(lembrete2);
   	}
 }
 
@@ -113,6 +110,7 @@ class ComparaEventoLocal implements Comparator<ItemAgenda> {
   	public int compare(ItemAgenda _evento1, ItemAgenda _evento2) {
   		Evento evento1 = (Evento)_evento1;
   		Evento evento2 = (Evento)_evento2;
-        	return evento1.compareTo(evento2);
+        
+  		return evento1.compareTo(evento2);
   	}
 }

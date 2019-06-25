@@ -47,6 +47,38 @@ public class Evento extends ItemAgenda {
 	public void setLocal(String _local) {
 		this.local = _local;
 	}
+	
+
+	/**
+  	 * Método sobreposto equals para a classe Evento
+	 * @param _aux
+	 * @return boolean
+	 */
+ 	public boolean equals(Evento _aux) {
+ 		if (this.getLocal() == _aux.getLocal()) {
+ 			return true;
+ 		}
+ 		else {
+ 			return false;
+ 		}
+ 	}
+ 	
+ 	/**
+	 * Compara o objeto do chamado com o objeto passado como parametro
+	 * @param _aux
+	 * @return int
+	 */
+	public int compareTo(Evento _aux) {
+		if (this.getLocal().length() ==_aux.getLocal().length()) {
+			return 0;
+		}
+		if (this.getLocal().length() > _aux.getLocal().length()) {
+			return 1;
+		}
+		else {
+			return -1;
+		}
+	}
 
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()

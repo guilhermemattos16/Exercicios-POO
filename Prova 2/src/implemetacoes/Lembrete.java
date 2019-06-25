@@ -47,6 +47,38 @@ public class Lembrete extends ItemAgenda {
 	public void setAviso(int _aviso) {
 		this.aviso = _aviso;
 	}
+	
+	/**
+  	 * Método sobreposto equals
+	 * @param _aux
+	 * @return boolean
+	 */
+ 	public boolean equals(Lembrete _aux) {
+ 		if (this.getAviso() == _aux.getAviso()) {
+ 			return true;
+ 		}
+ 		else {
+ 			return false;
+ 		}
+ 	}
+ 	
+ 	/**
+	 * Compara o objeto do chamado com o objeto passado como parametro
+	 * @param _aux
+	 * @return int
+	 */
+	public int compareTo(Lembrete _aux) {
+		if (this.getAviso() ==_aux.getAviso()) {
+			return 0;
+		}
+		if (this.getAviso() > _aux.getAviso()) {
+			return 1;
+		}
+		else {
+			return -1;
+		}
+	}
+
 
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()

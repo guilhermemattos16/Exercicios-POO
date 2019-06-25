@@ -7,10 +7,10 @@ public class Periodo {
 	Horario horaF; // Horario Final
 	
 	/**
-	 * @param dataI
-	 * @param horaI
-	 * @param dataF
-	 * @param horaF
+	 * @param _dataI
+	 * @param _horaI
+	 * @param _dataF
+	 * @param _horaF
 	 * @throws Exception 
 	 */
 	public Periodo(Data _dataI, Horario _horaI, Data _dataF, Horario _horaF) throws Exception {
@@ -18,6 +18,16 @@ public class Periodo {
 		this.setHoraI(_horaI);
 		this.setDataF(_dataF);
 		this.setHoraF(_horaF);
+	}
+	
+	/**
+	 * @param _dataI
+	 * @param _dataF
+	 * @throws Exception 
+	 */
+	public Periodo(Data _dataI, Data _dataF) throws Exception {
+		this.setDataI(_dataI);
+		this.setDataF(_dataF);
 	}
 	
 	/**
@@ -55,7 +65,7 @@ public class Periodo {
 	 * @throws Exception 
 	 */
 	public void setDataF(Data _dataF) throws Exception {
-		if(_dataF.compareTo(this.getDataI()) == 1) {
+		if(_dataF.compareTo(this.getDataI()) == 1 || _dataF.compareTo(this.getDataI()) == 0) {
 			this.dataF = _dataF;
 		}
 		else {
